@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Desktop</title>
+  <link rel="shortcut icon" href="./assets/favicon (2).png" type="image/x-icon">
+
+  <style>
+    /*
+      #8a2be2 roxo principal
+      #a088b1 roxo claro
+      #fef7ff
+      #3a2a46 roxo escuro
+      */
+
+    * {
+      margin: 0px;
+      padding: 0px;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    html {
+      height: 100vh;
+      background-color: #bd9bd6
+    }
+
+    body {
+      text-align: justify;
+      background-image: linear-gradient(to bottom, #3a2a46, #a088b1);
+      background-repeat: no-repeat;
+      background-position: top;
+      background-attachment: scroll;
+    }
+
+    header {
+      background-color: #9458ec;
+      margin-top: 3px;
+      color: #f5f5f5;
+      border-radius: 7px 7px 0px 0px;
+      width: 90vw;
+      margin: auto;
+    }
+
+    header>h1 {
+      text-align: center;
+      color: whitesmoke;
+      padding: 3px;
+      text-shadow: #c5a898 1px 1px 10px;
+      margin-top: 17px;
+    }
+
+    menu {
+      background-color: #8a2be2;
+      margin: auto;
+      width: 90vw;
+      margin: auto;
+      text-align: center;
+      color: #fef7ff;
+    }
+
+    menu>ul {
+      list-style-type: none;
+    }
+
+    menu>ul>li>a {
+      display: block;
+      padding: 7px;
+      text-decoration: none;
+      text-align: center;
+      background-color: #8a2be2;
+      border-radius: 0px 0px 0px 0px;
+      color: #fef7ff;
+      margin: auto;
+    }
+
+    menu>ul>li>a:hover {
+      background-color: #3a2a46;
+      color: #fef7ff;
+      text-decoration: none;
+    }
+
+    /*Na linha 85 fica a parte de configuração do menu burger*/
+
+    main {
+      background-color: #fef7ff;
+      margin: auto;
+      margin-top: 7px;
+      width: 90vw;
+      padding: 3px;
+      border-radius: 7px 7px 0px 0px;
+    }
+
+    article>h2 {
+      padding-bottom: 17px;
+    }
+
+    article>p {
+      text-align: justify;
+      margin-bottom: 17px;
+      text-indent: 17px;
+    }
+
+    footer {
+      background-color: #87679f;
+      width: 90vw;
+      height: 70px;
+      margin: auto;
+      text-align: center;
+      color: #f5f5f5;
+      border-radius: 0px 0px 7px 7px;
+      padding: 7px;
+    }
+
+    .img {
+      display: block;
+      margin: auto;
+    }
+
+    /*Aqui fica a parte de configuração do menu burger*/
+    #burger {
+      background-color: #8a2be2;
+      display: block;
+      color: whitesmoke;
+      text-align: center;
+      margin: auto;
+      padding: 7px;
+      width: 90vw;
+      cursor: pointer;
+    }
+
+    #burger:hover {
+      background-color: #3a2a46;
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1200px) {
+      body {
+        background-image: url("wp-github.png");
+        background-repeat: no-repeat;
+        background-position: top;
+        background-attachment: fixed;
+      }
+
+      #burger {
+        display: none;
+      }
+
+      menu {
+        display: block;
+        width: 90vw;
+        height: 5vh;
+        margin: auto;
+        background-color: #8a2be2;
+      }
+
+      menu>ul>li {
+        display: inline-block;
+        background-color: #21203f;
+      }
+
+      main {
+        width: 90vw;
+        margin: auto;
+      }
+
+      article>h2 {
+        padding-bottom: 17px;
+        width: 90vw;
+        margin: auto;
+      }
+
+      article>p {
+        text-align: justify;
+        margin-bottom: 17px;
+        text-indent: 17px;
+      }
+
+      footer {
+        width: 90vw;
+        margin: auto;
+      }
+    }
+
+    @media screen and (min-width: 1202px) {
+      body {
+        background-image: url("wp-github.png");
+        background-repeat: no-repeat;
+        background-position: top;
+        background-attachment: scroll;
+      }
+
+      #burger {
+        display: none;
+      }
+
+      menu {
+        display: block;
+        width: 90vw;
+        height: 5vh;
+        margin: auto;
+        background-color: #8a2be2;
+      }
+
+      menu>ul>li {
+        display: inline-block;
+        background-color: #21203f;
+      }
+
+      main {
+        width: 90vw;
+        margin: auto;
+      }
+
+      article>h2 {
+        padding-bottom: 17px;
+        width: 90vw;
+        margin: auto;
+      }
+
+      article>p {
+        text-align: justify;
+        margin-bottom: 17px;
+        text-indent: 17px;
+      }
+
+      footer {
+        width: 90vw;
+        margin: auto;
+      }
+    }
+  </style>
+</head>
+
+<body onresize="mudouTamanho()">
+  <!-- Vamos usar essa pagina  para testar o Git e como uma  pagina de exemplo usaremos o style
+       para exibir  o texto e outros recursos-->
+  <header>
+    <h1>Tutorial de GitHub Desktop</h1>
+  </header>
+
+  <span id="burger" class="material-symbols-outlined" onclick="clickMenu()">
+    menu
+  </span>
+
+  <menu id="itens">
+    <ul>
+      <li><a href="./index.html">Git e Git Bash</a></li>
+      <li><a href="./github.html">GitHub</a></li>
+      <li><a href="./githubdesktop.html">Git Hub Desktop</a></li>
+    </ul>
+  </menu>
+
+  <main>
+    <img src="./assets/git.png" alt="git_bash" width="190" height="170" />
+    <img src="./assets/gitbash.png" alt="github_pages" width="190" height="170" />
+    <img src="./assets/github.png" alt="github_desktop" width="190" height="170" />
+
+    <article>
+      <h2>GitHub Desktop</h2>
+
+      <p>GitHub Desktop é uma aplicação gráfica para macOS e Windows que facilita o uso do Git e a interação com
+        repositórios no GitHub, sem a necessidade de usar a linha de comando. É uma ferramenta útil para desenvolvedores
+        que preferem uma interface visual para gerenciar suas atividades no Git.</p>
+
+      <p>Aqui estão alguns pontos principais sobre o GitHub Desktop:</p>
+
+      <p>Interface Gráfica: GitHub Desktop oferece uma interface amigável que permite realizar tarefas do Git, como
+        commits, merges e pull requests, de forma visual. Isso torna o uso do Git mais acessível, especialmente para
+        iniciantes.</p>
+
+      <p>Clonar Repositórios: Você pode clonar repositórios do GitHub para o seu computador com apenas alguns cliques.
+        Isso facilita a obtenção de uma cópia local do projeto em que você deseja trabalhar.</p>
+
+      <p>Gerenciamento de Branches: GitHub Desktop permite criar, alternar e gerenciar branches de maneira simples e
+        intuitiva. Você pode ver todas as branches do seu repositório e mudar entre elas facilmente.</p>
+
+      <p>Commits e Históricos: Fazer commits e visualizar o histórico de mudanças é fácil com o GitHub Desktop. A
+        interface permite que você veja uma lista detalhada de commits, incluindo mensagens e mudanças de código
+        associadas.</p>
+
+      <p>Sincronização: Manter seu repositório local sincronizado com o repositório remoto no GitHub é simples com o
+        GitHub Desktop. A ferramenta facilita enviar (push) suas mudanças para o GitHub e puxar (pull) mudanças de
+        outros colaboradores</p>
+
+      <p>Colaboração: GitHub Desktop facilita o processo de criar pull requests para sugerir mudanças e revisões de
+        código. Você pode visualizar e gerenciar pull requests diretamente na aplicação.</p>
+
+      <p>Integração com GitHub: GitHub Desktop é totalmente integrado com o GitHub, permitindo que você aproveite todas
+        as funcionalidades da plataforma, como issues, pull requests e revisão de código, diretamente do aplicativo.</p>
+
+      <p>GitHub Desktop é uma ferramenta poderosa que simplifica o uso do Git, tornando o controle de versão e a
+        colaboração mais acessíveis a todos os níveis de desenvolvedores.</p>
+    </article>
+  </main>
+  <footer>
+    <p>&copy; 2024 - Juliane</p>
+  </footer>
+  <script>
+    /*
+    verifica se o tamanho da tela mudou para menor de 768px para assim aplicar o estilo
+    deixando assim o menu estatico oculto e bloqueado para visualizar
+    */
+    function mudouTamanho() {
+      if (window.innerWidth >= 768) {
+        itens.style.display = "block";
+      } else {
+        itens.style.display = "none";
+      }
+    }
+
+    function clickMenu() {
+      if (itens.style.display == "block") {
+        itens.style.display = "none";
+      } else {
+        itens.style.display = "block";
+      }
+    }
+  </script>
+</body>
+
+</html>
+</head>
+
+<body>
+
+</body>

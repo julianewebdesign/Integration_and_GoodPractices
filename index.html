@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Git e Git Bash</title>
+  <link rel="shortcut icon" href="./assets/favicon (2).png" type="image/x-icon">
+
+  <!-- as apresentações foram boas, e gostei dos feedbacks do professor -->
+  <style>
+    /*
+      #8a2be2 roxo principal
+      #a088b1 roxo claro
+      #fef7ff
+      #3a2a46 roxo escuro
+      */
+
+    * {
+      margin: 0px;
+      padding: 0px;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    html {
+      height: 100vh;
+      background-color: #bd9bd6
+    }
+
+    body {
+      text-align: justify;
+      background-image: linear-gradient(to bottom, #3a2a46, #a088b1);
+      background-repeat: no-repeat;
+      background-position: top;
+      background-attachment: scroll;
+    }
+
+    header {
+      background-color: #9458ec;
+      margin-top: 3px;
+      color: #f5f5f5;
+      border-radius: 7px 7px 0px 0px;
+      width: 90vw;
+      margin: auto;
+    }
+
+    header>h1 {
+      text-align: center;
+      color: whitesmoke;
+      padding: 3px;
+      text-shadow: #c5a898 1px 1px 10px;
+      margin-top: 17px;
+    }
+
+    menu {
+      background-color: #9458ec;
+      margin: auto;
+      width: 90vw;
+      margin: auto;
+      text-align: center;
+      color: #fef7ff;
+    }
+
+    menu>ul {
+      list-style-type: none;
+    }
+
+    menu>ul>li>a {
+      display: block;
+      padding: 7px;
+      text-decoration: none;
+      text-align: center;
+      background-color: #8a2be2;
+      border-radius: 0px 0px 0px 0px;
+      color: #fef7ff;
+      margin: auto;
+    }
+
+    menu>ul>li>a:hover {
+      background-color: #3a2a46;
+      color: #fef7ff;
+      text-decoration: none;
+    }
+
+    /*Na linha 85 fica a parte de configuração do menu burger*/
+
+    main {
+      background-color: #fef7ff;
+      margin: auto;
+      margin-top: 7px;
+      width: 90vw;
+      padding: 3px;
+      border-radius: 7px 7px 0px 0px;
+    }
+
+    article>h2 {
+      padding-bottom: 17px;
+    }
+
+    article>p {
+      text-align: justify;
+      margin-bottom: 17px;
+      text-indent: 17px;
+    }
+
+    footer {
+      background-color: #87679f;
+      width: 90vw;
+      height: 70px;
+      margin: auto;
+      text-align: center;
+      color: #f5f5f5;
+      border-radius: 0px 0px 7px 7px;
+      padding: 7px;
+    }
+
+    .img {
+      display: block;
+      margin: auto;
+    }
+
+    /*Aqui fica a parte de configuração do menu burger*/
+    #burger {
+      background-color: #8a2be2;
+      display: block;
+      color: whitesmoke;
+      text-align: center;
+      margin: auto;
+      padding: 7px;
+      width: 90vw;
+      cursor: pointer;
+    }
+
+    #burger:hover {
+      background-color: #3a2a46;
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1200px) {
+      body {
+        background-image: url("wp-github.png");
+        background-repeat: no-repeat;
+        background-position: top;
+        background-attachment: fixed;
+      }
+
+      #burger {
+        display: none;
+      }
+
+      menu {
+        display: block;
+        width: 90vw;
+        height: 5vh;
+        margin: auto;
+        background-color: #8a2be2;
+      }
+
+      menu>ul>li {
+        display: inline-block;
+        background-color: #21203f;
+      }
+
+      main {
+        width: 90vw;
+        margin: auto;
+      }
+
+      article>h2 {
+        padding-bottom: 17px;
+        width: 90vw;
+        margin: auto;
+      }
+
+      article>p {
+        text-align: justify;
+        margin-bottom: 17px;
+        text-indent: 17px;
+      }
+
+      footer {
+        width: 90vw;
+        margin: auto;
+      }
+    }
+
+    @media screen and (min-width: 1202px) {
+      body {
+        background-image: url("wp-github.png");
+        background-repeat: no-repeat;
+        background-position: top;
+        background-attachment: scroll;
+      }
+
+      #burger {
+        display: none;
+      }
+
+      menu {
+        display: block;
+        width: 90vw;
+        height: 5vh;
+        margin: auto;
+        background-color: #8a2be2;
+      }
+
+      menu>ul>li {
+        display: inline-block;
+        background-color: #21203f;
+      }
+
+      main {
+        width: 90vw;
+        margin: auto;
+      }
+
+      article>h2 {
+        padding-bottom: 17px;
+        width: 90vw;
+        margin: auto;
+      }
+
+      article>p {
+        text-align: justify;
+        margin-bottom: 17px;
+        text-indent: 17px;
+      }
+
+      footer {
+        width: 90vw;
+        margin: auto;
+      }
+    }
+  </style>
+</head>
+
+<body onresize="mudouTamanho()">
+  <!-- Vamos usar essa pagina  para testar o Git e como uma  pagina de exemplo usaremos o style
+       para exibir  o texto e outros recursos-->
+  <header>
+    <h1>Tutorial de Gits</h1>
+  </header>
+
+  <span id="burger" class="material-symbols-outlined" onclick="clickMenu()">
+    menu
+  </span>
+
+  <menu id="itens">
+    <ul>
+      <li><a href="./index.html">Git e Git Bash</a></li>
+      <li><a href="./github.html">GitHub</a></li>
+      <li><a href="./githubdesktop.html">Git Hub Desktop</a></li>
+    </ul>
+  </menu>
+
+  <main>
+    <img src="./assets/git.png" alt="git_bash" width="190" height="170" />
+    <img src="./assets/gitbash.png" alt="github_pages" width="190" height="170" />
+    <img src="./assets/github.png" alt="github_desktop" width="190" height="170" />
+
+    <article>
+      <h2>Git e Git Bash</h2>
+
+      <!-- Um texto organizado e com parágrafos nos seus respectivos lugares, é importante para uma estética visual harmoniosa e cativante. -->
+      <p>
+        Git é um sistema de controle de versão distribuído amplamente
+        utilizado no desenvolvimento de software. Ele permite que equipes de
+        desenvolvedores colaborem de maneira eficiente, rastreando alterações
+        no código-fonte ao longo do tempo. Com o Git, é possível criar
+        ramificações (branches), mesclar alterações (merges) e reverter para
+        versões anteriores, o que facilita a experimentação e a manutenção de
+        projetos.</p>
+      <p>Uma das principais vantagens do Git é a sua capacidade de
+        trabalhar offline. Os desenvolvedores podem fazer commits localmente e
+        sincronizar suas alterações com um repositório remoto quando estiverem
+        prontos. Isso proporciona flexibilidade e segurança, pois cada
+        desenvolvedor tem uma cópia completa do repositório em sua máquina.</p>
+      <p>Git Bash é um aplicativo que fornece uma interface de linha de comando
+        para interagir com o Git no Windows. Ele simula um ambiente Unix,
+        permitindo que os usuários executem comandos do Git de forma
+        semelhante ao que fariam em um terminal Linux ou macOS. Com o Git
+        Bash, é possível realizar operações como clonar repositórios, criar
+        branches, fazer commits e muito mais, tudo a partir da linha de
+        comando. </p>
+      <p>Para começar a usar o Git e o Git Bash, é necessário
+        instalá-los em sua máquina. Após a instalação, você pode abrir o Git
+        Bash e navegar até o diretório do seu projeto. A partir daí, comandos
+        como git init, git add, git commit e git push se tornam ferramentas
+        essenciais no seu fluxo de trabalho.</p>
+      <p> Em resumo, Git e Git Bash são
+        ferramentas poderosas que transformam a maneira como os
+        desenvolvedores colaboram e gerenciam projetos. Com um pouco de
+        prática, você pode aproveitar ao máximo essas ferramentas e melhorar
+        significativamente sua produtividade no desenvolvimento de software.</p>
+    </article>
+  </main>
+  <footer>
+    <p>&copy; 2024 - Juliane</p>
+  </footer>
+  <script>
+    /*
+    verificar se o tamanho da tela mudou para menor de 768px para assim aplicar o estilo
+    deixando assim o menu estatico oculto e bloqueado para visualizar
+    */
+    function mudouTamanho() {
+      if (window.innerWidth >= 768) {
+        itens.style.display = "block";
+      } else {
+        itens.style.display = "none";
+      }
+    }
+
+    function clickMenu() {
+      if (itens.style.display == "block") {
+        itens.style.display = "none";
+      } else {
+        itens.style.display = "block";
+      }
+    }
+  </script>
+</body>
+
+</html>
+</head>
+
+<body>
+
+</body>
+
+</html>

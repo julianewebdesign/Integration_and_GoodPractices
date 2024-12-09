@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Git Hub</title>
+  <link rel="shortcut icon" href="./assets/favicon (2).png" type="image/x-icon">
+
+  <style>
+    /*
+      #8a2be2 roxo principal
+      #a088b1 roxo claro
+      #fef7ff
+      #3a2a46 roxo escuro
+      */
+
+    * {
+      margin: 0px;
+      padding: 0px;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    html {
+      height: 100vh;
+      background-color: #bd9bd6
+    }
+
+    body {
+      text-align: justify;
+      background-image: linear-gradient(to bottom, #3a2a46, #a088b1);
+      background-repeat: no-repeat;
+      background-position: top;
+      background-attachment: scroll;
+    }
+
+    header {
+      background-color: #9458ec;
+      margin-top: 3px;
+      color: #f5f5f5;
+      border-radius: 7px 7px 0px 0px;
+      width: 90vw;
+      margin: auto;
+    }
+
+    header>h1 {
+      text-align: center;
+      color: whitesmoke;
+      padding: 3px;
+      text-shadow: #c5a898 1px 1px 10px;
+      margin-top: 17px;
+    }
+
+    menu {
+      background-color: #8a2be2;
+      margin: auto;
+      width: 90vw;
+      margin: auto;
+      text-align: center;
+      color: #fef7ff;
+    }
+
+    menu>ul {
+      list-style-type: none;
+    }
+
+    menu>ul>li>a {
+      display: block;
+      padding: 7px;
+      text-decoration: none;
+      text-align: center;
+      background-color: #8a2be2;
+      border-radius: 0px 0px 0px 0px;
+      color: #fef7ff;
+      margin: auto;
+    }
+
+    menu>ul>li>a:hover {
+      background-color: #3a2a46;
+      color: #fef7ff;
+      text-decoration: none;
+    }
+
+    /*Na linha 85 fica a parte de configuração do menu burger*/
+
+    main {
+      background-color: #fef7ff;
+      margin: auto;
+      margin-top: 7px;
+      width: 90vw;
+      padding: 3px;
+      border-radius: 7px 7px 0px 0px;
+    }
+
+    article>h2 {
+      padding-bottom: 17px;
+    }
+
+    article>p {
+      text-align: justify;
+      margin-bottom: 17px;
+      text-indent: 17px;
+    }
+
+    footer {
+      background-color: #87679f;
+      width: 90vw;
+      height: 70px;
+      margin: auto;
+      text-align: center;
+      color: #f5f5f5;
+      border-radius: 0px 0px 7px 7px;
+      padding: 7px;
+    }
+
+    .img {
+      display: block;
+      margin: auto;
+    }
+
+    /*Aqui fica a parte de configuração do menu burger*/
+    #burger {
+      background-color: #8a2be2;
+      display: block;
+      color: whitesmoke;
+      text-align: center;
+      margin: auto;
+      padding: 7px;
+      width: 90vw;
+      cursor: pointer;
+    }
+
+    #burger:hover {
+      background-color: #3a2a46;
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1200px) {
+      body {
+        background-image: url("wp-github.png");
+        background-repeat: no-repeat;
+        background-position: top;
+        background-attachment: fixed;
+      }
+
+      #burger {
+        display: none;
+      }
+
+      menu {
+        display: block;
+        width: 90vw;
+        height: 5vh;
+        margin: auto;
+        background-color: #8a2be2;
+      }
+
+      menu>ul>li {
+        display: inline-block;
+        background-color: #21203f;
+      }
+
+      main {
+        width: 90vw;
+        margin: auto;
+      }
+
+      article>h2 {
+        padding-bottom: 17px;
+        width: 90vw;
+        margin: auto;
+      }
+
+      article>p {
+        text-align: justify;
+        margin-bottom: 17px;
+        text-indent: 17px;
+      }
+
+      footer {
+        width: 90vw;
+        margin: auto;
+      }
+    }
+
+    @media screen and (min-width: 1202px) {
+      body {
+        background-image: url("wp-github.png");
+        background-repeat: no-repeat;
+        background-position: top;
+        background-attachment: scroll;
+      }
+
+      #burger {
+        display: none;
+      }
+
+      menu {
+        display: block;
+        width: 90vw;
+        height: 5vh;
+        margin: auto;
+        background-color: #8a2be2;
+      }
+
+      menu>ul>li {
+        display: inline-block;
+        background-color: #21203f;
+      }
+
+      main {
+        width: 90vw;
+        margin: auto;
+      }
+
+      article>h2 {
+        padding-bottom: 17px;
+        width: 90vw;
+        margin: auto;
+      }
+
+      article>p {
+        text-align: justify;
+        margin-bottom: 17px;
+        text-indent: 17px;
+      }
+
+      footer {
+        width: 90vw;
+        margin: auto;
+      }
+    }
+  </style>
+</head>
+
+<body onresize="mudouTamanho()">
+  <!-- Vamos usar essa pagina  para testar o Git e como uma  pagina de exemplo usaremos o style
+       para exibir  o texto e outros recursos-->
+  <header>
+    <h1>Tutorial de GitHub</h1>
+  </header>
+
+  <span id="burger" class="material-symbols-outlined" onclick="clickMenu()">
+    menu
+  </span>
+
+  <menu id="itens">
+    <ul>
+      <li><a href="./index.html">Git e Git Bash</a></li>
+      <li><a href="./github.html">GitHub</a></li>
+      <li><a href="./githubdesktop.html">Git Hub Desktop</a></li>
+    </ul>
+  </menu>
+
+  <main>
+    <img src="./assets/git.png" alt="git_bash" width="190" height="170" />
+    <img src="./assets/gitbash.png" alt="github_pages" width="190" height="170" />
+    <img src="./assets/github.png" alt="github_desktop" width="190" height="170" />
+
+    <article>
+      <h2>GitHub</h2>
+
+      <p>GitHub é uma plataforma de hospedagem de código-fonte que utiliza o sistema de controle de versão Git. Ele
+        permite que desenvolvedores colaborem em projetos de software, armazenem suas mudanças e compartilhem seu
+        trabalho com outros. Aqui estão alguns pontos principais sobre o GitHub:</p>
+
+        <p>Repositórios: São como pastas de projetos. Cada repositório contém todos os arquivos do projeto, incluindo o
+        histórico de mudanças. Você pode criar repositórios públicos (visíveis para todos) ou privados (visíveis apenas
+        para você e os colaboradores que você convidar).</p>
+
+      <p>Branches: Permitem que você trabalhe em diferentes versões do seu projeto simultaneamente. Por exemplo, você
+        pode ter uma branch "main" (principal) que contém a versão estável do seu código, e outras branches para
+        desenvolvimento de novas funcionalidades ou correções de bugs.</p>
+
+        <p>Commits: Representam as mudanças feitas nos arquivos do repositório. Cada commit tem uma mensagem descritiva que
+        ajuda a entender o que foi alterado e por quê.</p>
+
+        <p>Pull Requests: São usadas para solicitar a revisão de mudanças feitas em uma branch antes de serem incorporadas
+        na branch principal. Outros colaboradores podem revisar o código, fazer comentários e sugerir alterações.</p>
+
+        <p>Issues: Servem para rastrear tarefas, melhorias e bugs em um projeto. Elas podem ser usadas para organizar e
+        priorizar o trabalho da equipe.</p>
+
+        <p>Actions: Permitem automatizar fluxos de trabalho (como testes, compilações e deploys) diretamente no GitHub,
+        integrando ferramentas e serviços externos.</p>
+
+        <p>Forks: São cópias de repositórios que permitem que você faça mudanças no código sem afetar o projeto original.
+        Isso é útil para contribuir com projetos de código aberto, onde você pode fazer alterações e depois sugerir
+        essas mudanças através de pull requests.</p>
+
+        <p>O GitHub é amplamente utilizado por desenvolvedores para colaboração e versionamento de código, além de ser uma
+        ótima ferramenta para aprender com a comunidade global de desenvolvedores.</p>
+    </article>
+  </main>
+  <footer>
+    <p>&copy; 2024 - Juliane</p>
+  </footer>
+  <script>
+    /*
+    verifica se o tamanho da tela mudou para menor de 768px para assim aplicar o estilo
+    deixando assim o menu estatico oculto e bloqueado para visualizar
+    */
+    function mudouTamanho() {
+      if (window.innerWidth >= 768) {
+        itens.style.display = "block";
+      } else {
+        itens.style.display = "none";
+      }
+    }
+
+    function clickMenu() {
+      if (itens.style.display == "block") {
+        itens.style.display = "none";
+      } else {
+        itens.style.display = "block";
+      }
+    }
+  </script>
+</body>
+
+</html>
+</head>
+
+<body>
+
+</body>
